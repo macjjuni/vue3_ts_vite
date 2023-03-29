@@ -1,5 +1,32 @@
 <template>
-  <header>
+  <v-app-bar :elevation="10" style="position: relative">
+    <v-app-bar-title>vue</v-app-bar-title>
+
+    <v-spacer></v-spacer>
+
+    <v-menu>
+      <template v-slot:activator="{ props }">
+        <v-btn v-bind="props"> <v-icon icon="mdi-widgets" /> </v-btn>
+      </template>
+      <v-list>
+        <v-list-item v-for="(item, index) in showMenu" :key="index">
+          <router-link :to="item.path">
+            <v-list-item-title>
+              {{ item.name }}
+            </v-list-item-title>
+          </router-link>
+        </v-list-item>
+        <v-list-item>
+          <router-link v-if="!isLogin" to="/login">
+            <v-list-item-title>로그인</v-list-item-title>
+          </router-link>
+          <v-list-item-title v-else @click="onLogout">로그아웃</v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
+  </v-app-bar>
+
+  <!-- <header>
     <router-link class="logo" to="/">
       <img src="/vite.svg" alt="logo" width="30" height="30" />
     </router-link>
@@ -17,10 +44,12 @@
         </li>
       </ul>
     </nav>
-  </header>
+  </header> -->
 </template>
 
 <script setup lang="ts">
+import { mdiAccount } from '@mdi/js'
+
 import { ref, computed, watchEffect, watch } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
@@ -31,9 +60,6 @@ const router = useRouter()
 const showMenu = ref(router.options.routes.filter((route) => route.meta?.show === true))
 const isLogin = computed(() => (getters.userInfo.token ? true : false))
 
-const onLogin = () => {
-  router.push('/login')
-}
 const onLogout = () => {
   logout()
   router.push('/')

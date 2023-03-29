@@ -1,8 +1,12 @@
 <template>
   <div class="Login">
-    <v-text-field v-model="loginData.id" data-flag="userId" label="아이디" />
-    <v-text-field v-model="loginData.password" label="비밀번호" data-flag="userPW" type="password" />
-    <v-btn @click="loginAction">Button</v-btn>
+    <v-card class="mx-auto" width="600" height="300">
+      <v-responsive class="mx-auto" max-width="340">
+        <v-text-field v-model="loginData.id" label="User ID" hide-details="auto" />
+        <v-text-field v-model="loginData.password" label="User Password" type="password" hint="Enter your password to access this website" />
+        <v-btn variant="tonal" block @click="loginAction">Login</v-btn>
+      </v-responsive>
+    </v-card>
   </div>
 </template>
 
