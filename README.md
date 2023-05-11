@@ -5,6 +5,7 @@
 - [x] eslint/prettier
 - [x] Path Alias
 - [x] vuetify
+- [x] init env
 - [x] axios
 
 ## Project setup
