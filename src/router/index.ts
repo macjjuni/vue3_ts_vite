@@ -4,7 +4,7 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: () => import('@/router/views/Home.vue'),
+    component: () => import('@/views/Home.vue'),
     meta: {
       icon: 'mdi-home',
       requiresAuth: false,
@@ -13,7 +13,7 @@ const routes = [
   {
     path: '/about',
     name: 'About',
-    component: () => import('@/router/views/About.vue'),
+    component: () => import('@/views/About.vue'),
     meta: {
       icon: 'mdi-account',
       requiresAuth: false,
