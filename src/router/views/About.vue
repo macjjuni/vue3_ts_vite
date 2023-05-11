@@ -1,20 +1,6 @@
 <template>
-  <div class="Home">
-    <p>{{ props.name }}</p>
-    <p>토큰 필요 페이지</p>
-  </div>
+  <div>About Page</div>
 </template>
 
-<script setup lang="ts">
-import { defineProps, watchEffect } from 'vue'
-
-const props = defineProps({
-  name: {
-    type: String,
-    default: 'About Page!',
-  },
-})
-</script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+<script setup lang="ts"></script>
 <style scoped></style>

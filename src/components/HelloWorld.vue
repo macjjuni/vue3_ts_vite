@@ -1,56 +1,25 @@
 <template>
-  <div class="hello">
-    <div>{{ props.msg }}</div>
-    <div>
-      <!-- <p>Count: {{ count }}</p>
-      <button @click="incrementCount">Increment Count</button> -->
-    </div>
-    <p class="test">1</p>
-    <p class="test">2</p>
-  </div>
+  <div class="hello-world">{{ props.title }} Component!</div>
 </template>
 
 <script setup lang="ts">
 import { defineProps } from 'vue'
 
 const props = defineProps({
-  msg: {
+  title: {
     type: String,
-    default: 'message',
+    default: 'Hello World!',
   },
 })
-
-// const state = reactive({
-//   count: 10,
-//   increase: () => state.count++,
-//   decrease: () => state.count--,
-// })
-
-// const count = ref(0)
-
-// const incrementCount = () => {
-//   count.value++
-// }
-
-// const handleUpdate = () => {
-//   state.count++
-// }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
+.hello-world {
   display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+  padding: 10px;
+  font-weight: bold;
+  border: 3px solid #c7c7c7;
+  border-radius: 3px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 </style>

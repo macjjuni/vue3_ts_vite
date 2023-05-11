@@ -1,36 +1,26 @@
-import { createStore } from 'vuex'
+import { createStore, Store } from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
 import SecureLS from 'secure-ls'
+import todo from './modules/todo'
+import auth from './modules/auth'
 import { IStore } from '@/types/auth'
+import { ITodos } from '@/types/todo'
 
 const ls = new SecureLS({ isCompression: false })
 
-export default createStore<IStore>({
-  state: {
-    userInfo: {
-      id: null,
-      token: null,
-    },
-  },
-  getters: {
-    userInfo(state) {
-      return state.userInfo
-    },
-  },
-  mutations: {
-    Login(state, userInfo) {
-      state.userInfo.id = userInfo.id
-      state.userInfo.token = userInfo.token
-    },
-    Logout(state) {
-      state.userInfo.id = null
-      state.userInfo.token = null
-    },
-  },
+export interface IRootState {
+  auth: IStore
+  todo: ITodos
+}
+
+export default createStore({
+  getters: {},
+  mutations: {},
   actions: {},
-  modules: {},
+  modules: { auth, todo },
   plugins: [
     createPersistedState({
+      paths: ['auth', 'todo'],
       storage: {
         getItem: (key) => ls.get(key),
         setItem: (key, value) => ls.set(key, value),

@@ -26,5 +26,5 @@ const vuetify = createVuetify({
   },
 })
 
-const app = createApp(App).use(store)
+const app = createApp(App)
 app.use(router).use(store).use(vuetify).mount('#app')

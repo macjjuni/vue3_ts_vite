@@ -1,19 +1,9 @@
 <template>
-  <div class="Home">
-    <p>{{ props.name }}</p>
-  </div>
+  <div>Home Page</div>
+  <HelloWorld />
 </template>
 
 <script setup lang="ts">
-import { defineProps } from 'vue'
-
-const props = defineProps({
-  name: {
-    type: String,
-    default: 'Main',
-  },
-})
+import HelloWorld from '@/components/HelloWorld.vue'
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped></style>
