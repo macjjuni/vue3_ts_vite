@@ -1,4 +1,4 @@
-# Vue 3 + TypeScript + Vite
+# Vue3.2 + TypeScript + Vite + ESLint/Prettier
 
 ---
 
@@ -6,5 +6,5 @@
 - [x] vuex
 - [x] vuex-persistedstate
 - [x] secure-ls
-- [x] eslint
-- [x] prettier
+- [x] eslint/prettier
+- [x] vuetify
